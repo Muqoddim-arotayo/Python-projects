@@ -1,13 +1,9 @@
-print("CO-OPERATIVE BANK APP")
+print("\nCO-OPERATIVE BANK APP")
 company_register = dict(())
 each_user = 0
-def increment():
-    global each_user
-    each_user += 1
-    print(each_user)
-    return each_user
-increment()
 def sign_up():
+    global each_user
+    each_user+=1
     first_name = input("\nEnter your first name : ")
     last_name = input("\nEnter your last name : ")
     phone_number = input('\nEnter your phone number : ')
@@ -35,18 +31,26 @@ def sign_up():
 def sign_in() :
     sign_in_firstname = input("\nInput your fisrt name >> ")
     sign_in_password = input("\nInput your password >> ")
-    if company_register[f"user {each_user+1}"]["first name"] == sign_in_firstname and company_register[f"user {each_user+1}"]["password"] == sign_in_password:
-        print("\nWelcome  to the dashboard")
-    else:
-        print("\nAccount does not exist ? ")
-        red_signin = input("\nSign in [1] | Sign up [2] : ")
-        if red_signin == "1":
-            print("Redirecting to sig in page...")
-            sign_in()
+    for each_user_name, each_user_details in company_register.items():
+        if sign_in_firstname == each_user_details["first name"] and sign_in_password == each_user_details["password"] :
+            print("\nWelcome  to the dashboard")
         else:
-            print("\nRedirecting to sign up page...")
-            sign_up()
+            print("\nAccount does not exist ? ")
+            red_signin = input("\nSign in [1] | Sign up [2] : ")
+            if red_signin == "1":
+                print("Redirecting to sig in page...")
+                sign_in()
+            else:
+                print("\nRedirecting to sign up page...")
+                sign_up()
 
-# sign_up()
-# sign_in()
+
+print("\nWELCOME")
+company_register = dict(())
+each_user = 0
+dashboard_opt = input("\nSign in [1] | Sign up [2] : ")
+if dashboard_opt=="1":
+    sign_in()
+else: 
+    sign_up()
 
