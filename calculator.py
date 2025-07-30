@@ -1,4 +1,4 @@
-print('CALCULATOR')
+print('CALCULATOR...')
 print('list of operations: +, -, /, *, %, **')
 operation = input('input the opetaion to be carried out >>> ')
 first_value = input('input your first value >>> ')
